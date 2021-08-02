@@ -1,4 +1,4 @@
-import { CountryInfo, CountryInfoTranslations } from 'generated/api'
+import { CountryInfo } from 'generated/api'
 
 export const countryInfos = (): CountryInfo[] => [
   {
