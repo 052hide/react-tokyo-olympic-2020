@@ -5,6 +5,29 @@ info:
 servers:
   - url: http:/localhost:8080
 paths:
+  /country_infos:
+    get:
+      operationId: country_infos
+      responses:
+        '200':
+          description: ''
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CountryInfo'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /medal_count_countries:
     get:
       operationId: medal_count_countries
@@ -85,6 +108,47 @@ components:
         - gold
         - silver
         - bronze
+    CountryInfo:
+      type: object
+      required:
+        - id
+        - alpha_2_code
+        - name
+        - capital
+        - flag
+      properties:
+        id:
+          type: integer
+          format: int64
+        alpha_2_code:
+          type: string
+        name:
+          type: string
+        capital:
+          type: string
+        flag:
+          type: string
+        languages:
+          type: array
+          items:
+            type: object
+            required:
+              - name
+            properties:
+              name:
+                type: string
+        translations:
+          type: object
+          properties:
+            ja:
+              type: string
+        region:
+          type: string
+        subregion:
+          type: string
+        population:
+          type: integer
+          format: int64
     MedalCountCountry:
       type: object
       required:

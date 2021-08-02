@@ -8,7 +8,14 @@ const getMedalCountCountries = (mockAdapter: MockAdapter) => {
     .reply(200, mocks.medalCountCountries.medalCountCountries())
 }
 
+const getCountryInfos = (mockAdapter: MockAdapter) => {
+  mockAdapter
+    .onGet('/country_infos')
+    .reply(200, mocks.countryInfos.countryInfos())
+}
+
 const setAdaptor = (mockAdapter: MockAdapter): void => {
+  getCountryInfos(mockAdapter)
   getMedalCountCountries(mockAdapter)
 }
 
