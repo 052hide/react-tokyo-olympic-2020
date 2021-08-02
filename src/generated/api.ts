@@ -38,25 +38,25 @@ export interface MedalCountCountry {
      * @type {string}
      * @memberof MedalCountCountry
      */
-    countryAlpha2Code: string;
+    country_alpha_2_code: string;
     /**
      * 
      * @type {number}
      * @memberof MedalCountCountry
      */
-    goldCount: number;
+    gold_count: number;
     /**
      * 
      * @type {number}
      * @memberof MedalCountCountry
      */
-    silverCount: number;
+    silver_count: number;
     /**
      * 
      * @type {number}
      * @memberof MedalCountCountry
      */
-    bronzeCount: number;
+    bronze_count: number;
 }
 /**
  * 
@@ -100,49 +100,49 @@ export interface PageInfo {
      * @type {number}
      * @memberof PageInfo
      */
-    perPage: number;
+    per_page: number;
     /**
      * 
      * @type {number}
      * @memberof PageInfo
      */
-    pageNumber: number;
+    page_number: number;
     /**
      * 
      * @type {number}
      * @memberof PageInfo
      */
-    totalPageCount: number;
+    total_page_count: number;
     /**
      * 
      * @type {number}
      * @memberof PageInfo
      */
-    totalCount: number;
+    total_count: number;
     /**
      * 
      * @type {number}
      * @memberof PageInfo
      */
-    firstCursorId: number;
+    first_cursor_id: number;
     /**
      * 
      * @type {number}
      * @memberof PageInfo
      */
-    lastCursorId: number;
+    last_cursor_id: number;
     /**
      * 
      * @type {boolean}
      * @memberof PageInfo
      */
-    hasPreviousPage: boolean;
+    has_previous_page: boolean;
     /**
      * 
      * @type {boolean}
      * @memberof PageInfo
      */
-    hasNextPage: boolean;
+    has_next_page: boolean;
 }
 
 /**
