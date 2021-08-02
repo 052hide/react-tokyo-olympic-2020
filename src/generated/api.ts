@@ -40,6 +40,99 @@ import {
 /**
  *
  * @export
+ * @interface CountryInfo
+ */
+export interface CountryInfo {
+  /**
+   *
+   * @type {number}
+   * @memberof CountryInfo
+   */
+  id: number
+  /**
+   *
+   * @type {string}
+   * @memberof CountryInfo
+   */
+  alpha_2_code: string
+  /**
+   *
+   * @type {string}
+   * @memberof CountryInfo
+   */
+  name: string
+  /**
+   *
+   * @type {string}
+   * @memberof CountryInfo
+   */
+  capital: string
+  /**
+   *
+   * @type {string}
+   * @memberof CountryInfo
+   */
+  flag: string
+  /**
+   *
+   * @type {Array<CountryInfoLanguages>}
+   * @memberof CountryInfo
+   */
+  languages?: Array<CountryInfoLanguages>
+  /**
+   *
+   * @type {CountryInfoTranslations}
+   * @memberof CountryInfo
+   */
+  translations?: CountryInfoTranslations
+  /**
+   *
+   * @type {string}
+   * @memberof CountryInfo
+   */
+  region?: string
+  /**
+   *
+   * @type {string}
+   * @memberof CountryInfo
+   */
+  subregion?: string
+  /**
+   *
+   * @type {number}
+   * @memberof CountryInfo
+   */
+  population?: number
+}
+/**
+ *
+ * @export
+ * @interface CountryInfoLanguages
+ */
+export interface CountryInfoLanguages {
+  /**
+   *
+   * @type {string}
+   * @memberof CountryInfoLanguages
+   */
+  name: string
+}
+/**
+ *
+ * @export
+ * @interface CountryInfoTranslations
+ */
+export interface CountryInfoTranslations {
+  /**
+   *
+   * @type {string}
+   * @memberof CountryInfoTranslations
+   */
+  ja?: string
+}
+/**
+ *
+ * @export
  * @interface MedalCountCountry
  */
 export interface MedalCountCountry {
@@ -174,6 +267,42 @@ export const DefaultApiAxiosParamCreator = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
+    countryInfos: async (options: any = {}): Promise<RequestArgs> => {
+      const localVarPath = `/country_infos`
+      // use dummy base URL string because the URL constructor only accepts absolute URLs.
+      const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL)
+      let baseOptions
+      if (configuration) {
+        baseOptions = configuration.baseOptions
+      }
+
+      const localVarRequestOptions = {
+        method: 'GET',
+        ...baseOptions,
+        ...options,
+      }
+      const localVarHeaderParameter = {} as any
+      const localVarQueryParameter = {} as any
+
+      setSearchParams(localVarUrlObj, localVarQueryParameter, options.query)
+      let headersFromBaseOptions =
+        baseOptions && baseOptions.headers ? baseOptions.headers : {}
+      localVarRequestOptions.headers = {
+        ...localVarHeaderParameter,
+        ...headersFromBaseOptions,
+        ...options.headers,
+      }
+
+      return {
+        url: toPathString(localVarUrlObj),
+        options: localVarRequestOptions,
+      }
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
     medalCountCountries: async (options: any = {}): Promise<RequestArgs> => {
       const localVarPath = `/medal_count_countries`
       // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -220,6 +349,29 @@ export const DefaultApiFp = function (configuration?: Configuration) {
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
+    async countryInfos(
+      options?: any
+    ): Promise<
+      (
+        axios?: AxiosInstance,
+        basePath?: string
+      ) => AxiosPromise<Array<CountryInfo>>
+    > {
+      const localVarAxiosArgs = await localVarAxiosParamCreator.countryInfos(
+        options
+      )
+      return createRequestFunction(
+        localVarAxiosArgs,
+        globalAxios,
+        BASE_PATH,
+        configuration
+      )
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
     async medalCountCountries(
       options?: any
     ): Promise<
@@ -256,6 +408,16 @@ export const DefaultApiFactory = function (
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
+    countryInfos(options?: any): AxiosPromise<Array<CountryInfo>> {
+      return localVarFp
+        .countryInfos(options)
+        .then((request) => request(axios, basePath))
+    },
+    /**
+     *
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
     medalCountCountries(options?: any): AxiosPromise<Array<MedalCountCountry>> {
       return localVarFp
         .medalCountCountries(options)
@@ -271,6 +433,18 @@ export const DefaultApiFactory = function (
  * @extends {BaseAPI}
  */
 export class DefaultApi extends BaseAPI {
+  /**
+   *
+   * @param {*} [options] Override http request option.
+   * @throws {RequiredError}
+   * @memberof DefaultApi
+   */
+  public countryInfos(options?: any) {
+    return DefaultApiFp(this.configuration)
+      .countryInfos(options)
+      .then((request) => request(this.axios, this.basePath))
+  }
+
   /**
    *
    * @param {*} [options] Override http request option.
