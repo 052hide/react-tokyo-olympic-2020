@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  react-tokyo-olympic-2020-rest-api-server:
+    image: stoplight/prism:3
+    container_name: 'react-tokyo-olympic-2020-rest-api-server'
+    ports:
+      - '5555:4010'
+    command: mock -h 0.0.0.0 /schema.yml
+    volumes:
+      - ./schema/schema.yml:/schema.yml
+  react-tokyo-olympic-2020-rest-api-redoc:
+    image: redocly/redoc
+    container_name: 'react-tokyo-olympic-2020-rest-api-redoc'
+    ports:
+      - '5556:80'
+    volumes:
+      - ./schema/schema.yml:/usr/share/nginx/html/schema.yml
+    environment:
+      SPEC_URL: schema.yml

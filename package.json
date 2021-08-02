@@ -24,7 +24,9 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "eslint:fix": "eslint . --ext .js,.ts,.jsx,.tsx --fix --ignore-path .gitignore",
-    "prettier:fix": "prettier --write . --ignore-path .gitignore"
+    "prettier:fix": "prettier --write . --ignore-path .gitignore",
+    "generate-client": "openapi-generator-cli generate -g typescript-axios -c ./schema/config.yml -i ./schema/schema.yml -o ./src/generated",
+    "generate-mock-server": "openapi-generator-cli generate -g nodejs-express-server -i ./schema/schema.yml -o ./server"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.3.9",
     "@types/react-router-dom": "^5.1.8",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
