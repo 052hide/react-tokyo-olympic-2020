@@ -9,6 +9,7 @@ const baseOptions: Configuration['baseOptions'] = {
   withCredentials: true,
   headers: {
     'X-Requested-With': 'XMLHttpRequest',
+    Prefer: getBoolean(process.env.REACT_APP_USE_SERVER_MOCK) ? 'dynamic=true' : undefined
   },
 }
 
