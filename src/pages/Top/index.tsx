@@ -3,7 +3,7 @@ import { CountryInfo, MedalCountCountry } from 'generated/api'
 import { getCountryInfo, getCountryName } from 'helpers/country'
 import useDidMount from 'customHooks/useDidMount'
 import client from 'api/client'
-import FlexListRowLayout from 'components/layouts/FlexListRowLayout'
+import MedalCountCountryItem from 'components/containers/MedalCountCountryItemList/MedalCountCountryItem'
 
 export const Component = (): JSX.Element => {
   const [countryInfos, setCountryInfos] = useState<CountryInfo[]>([])
@@ -32,10 +32,9 @@ export const Component = (): JSX.Element => {
           countryInfos
         )
         return (
-          <FlexListRowLayout
+          <MedalCountCountryItem
             key={`medalCountCountries_${medalCountCountry.id}`}
-            colCount={2}
-            gridTemplateColumns="repeat(2, minmax(0, 1fr))"
+            medalCountCountry={medalCountCountry}
           >
             {countryInfo ? (
               <>
@@ -49,7 +48,7 @@ export const Component = (): JSX.Element => {
             ) : (
               ''
             )}
-          </FlexListRowLayout>
+          </MedalCountCountryItem>
         )
       })}
     </div>
