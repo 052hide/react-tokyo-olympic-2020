@@ -21,6 +21,6 @@ export default {
   default: DefaultApiFactory(
     configuration,
     basePath,
-    Client(!getBoolean(process.env.REACT_APP_USE_LOCAL_MOCK))
+    Client(getBoolean(process.env.REACT_APP_USE_LOCAL_MOCK))
   ),
 }
