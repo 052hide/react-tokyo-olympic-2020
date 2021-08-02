@@ -24,3 +24,5 @@ yarn-error.log*
 
 # open-api local express server
 server
+
+.env

@@ -1,5 +1,4 @@
 enumPropertyNaming: 'camelCase'
-modelPropertyNaming: 'camelCase'
 supportsES6: true
 useSingleRequestParameter: true
 api-package: api

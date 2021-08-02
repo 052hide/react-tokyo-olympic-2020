@@ -1,0 +1,36 @@
+import axios, { AxiosStatic } from 'axios'
+import MockAdapter from 'axios-mock-adapter'
+import mocks from '__mocks__'
+
+const getMedalCountCountries = (mockAdapter: MockAdapter) => {
+  mockAdapter
+    .onGet('/medal_count_countries')
+    .reply(200, mocks.medalCountCountries.medalCountCountries())
+}
+
+const setAdaptor = (mockAdapter: MockAdapter): void => {
+  getMedalCountCountries(mockAdapter)
+}
+
+const DelayResponseEnum = {
+  zero: 0,
+  minimum: 20,
+  short: 200,
+  long: 2000,
+}
+
+export const client = (
+  useMock: boolean,
+  mockDelayResponseMillisecond = DelayResponseEnum.short
+): AxiosStatic => {
+  if (useMock) {
+    const mockAdapter = new MockAdapter(axios, {
+      delayResponse: mockDelayResponseMillisecond,
+    })
+    setAdaptor(mockAdapter)
+    return (mockAdapter as any).axiosInstance as AxiosStatic // eslint-disable-line @typescript-eslint/no-explicit-any
+  }
+  return axios
+}
+
+export default client
