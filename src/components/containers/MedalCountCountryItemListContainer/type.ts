@@ -1,4 +1,3 @@
-import { ReactNode } from 'react'
 import { CountryInfo, MedalCountCountry } from 'generated/api'
 
 export type Props = {
