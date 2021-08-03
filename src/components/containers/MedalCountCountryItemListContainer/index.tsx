@@ -1,5 +1,5 @@
 import React from 'react'
-import { getCountryInfo } from '~/helpers/country'
+import { findCountryInfo } from '~/helpers/country'
 import MedalCountCountryItemList from '~/components/styles/MedalCountCountryItemList'
 import { Props } from './type'
 import MedalCountCountryItemRowContainer from './MedalCountCountryItemRowContainer'
@@ -14,7 +14,7 @@ const Component = (props: Props): JSX.Element => {
 
   const bodyComponents = props.medalCountCountries
     .map((medalCountCountry) => {
-      const countryInfo = getCountryInfo(
+      const countryInfo = findCountryInfo(
         medalCountCountry.country_alpha_2_code,
         props.countryInfos
       )
