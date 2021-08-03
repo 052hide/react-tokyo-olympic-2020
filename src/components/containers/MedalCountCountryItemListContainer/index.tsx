@@ -6,6 +6,12 @@ import MedalCountCountryItemRowContainer from './MedalCountCountryItemRowContain
 import MedalCountCountryItemRowHeaderContainer from './MedalCountCountryItemRowHeaderContainer'
 
 const Component = (props: Props): JSX.Element => {
+  const onClick = (alpha2Code: string) => {
+    if (props.onClick) {
+      props.onClick(alpha2Code)
+    }
+  }
+
   const bodyComponents = props.medalCountCountries
     .map((medalCountCountry) => {
       const countryInfo = getCountryInfo(
@@ -17,6 +23,7 @@ const Component = (props: Props): JSX.Element => {
           key={`medalCountCountries_${medalCountCountry.id}`}
           countryInfo={countryInfo}
           medalCountCountry={medalCountCountry}
+          onClick={() => onClick(medalCountCountry.country_alpha_2_code)}
         />
       ) : null
     })

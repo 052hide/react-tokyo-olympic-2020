@@ -4,5 +4,5 @@ export type Props = {
   columnComponents: ReactNode[]
   rootClassName?: string
   isHeader?: boolean
-  onClick?: (id: number) => void
+  onClick?: () => void
 }

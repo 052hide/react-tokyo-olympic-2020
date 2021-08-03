@@ -4,5 +4,5 @@ export type Props = {
   rootClassName?: string
   countryInfos: CountryInfo[]
   medalCountCountries: MedalCountCountry[]
-  onClick?: (id: number) => void
+  onClick?: (alpha2Code: string) => void
 }
