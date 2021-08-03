@@ -6,6 +6,9 @@ module.exports = {
       gridTemplateRows: {
         modal: '3rem 1fr',
       },
+      gridTemplateColumns: {
+        flexFirst4rem: '3fr repeat(3, minmax(4rem, 1fr))'
+      }
     },
   },
   variants: {

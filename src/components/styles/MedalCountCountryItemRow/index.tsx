@@ -3,14 +3,7 @@ import { Props } from './type'
 
 const Component = (props: Props): JSX.Element => {
   return (
-    <ul
-      className={`grid grid-cols-4 items-center transition-colors duration-150${
-        props.isHeader
-          ? 'sticky top-0 bg-gray-100 shadow-sm'
-          : 'bg-white cursor-pointer hover:bg-gray-200'
-      } ${props.rootClassName}`}
-      onClick={props.onClick}
-    >
+    <ul className="grid grid-cols-flexFirst4rem items-center" onClick={props.onClick}>
       {props.columnComponents.map((columnComponent, i) => (
         <li key={`columnComponent_${i}`}>{columnComponent}</li>
       ))}
