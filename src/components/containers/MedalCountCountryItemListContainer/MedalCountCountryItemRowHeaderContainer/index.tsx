@@ -1,20 +1,28 @@
-import React from 'react'
+import React, { ReactChild } from 'react'
 import MedalCountCountryItemColumn from '~/components/styles/MedalCountCountryItemColumn'
 import MedalCountCountryItemRow from '~/components/styles/MedalCountCountryItemRow'
 
+const TextComponent = (props: { children: ReactChild }): JSX.Element => {
+  return (
+    <p className="flex flex-row justify-center items-center w-full font-bold text-center text-xs sm:text-sm">
+      {props.children}
+    </p>
+  )
+}
+
 const Component = (): JSX.Element => {
   const columnComponents = [
-    <MedalCountCountryItemColumn key="name" isHeader={true} isCenter={true}>
-      国
+    <MedalCountCountryItemColumn key="name">
+      <TextComponent>国</TextComponent>
     </MedalCountCountryItemColumn>,
-    <MedalCountCountryItemColumn key="gold" isHeader={true} isCenter={true}>
-      金
+    <MedalCountCountryItemColumn key="gold">
+      <TextComponent>金</TextComponent>
     </MedalCountCountryItemColumn>,
-    <MedalCountCountryItemColumn key="silver" isHeader={true} isCenter={true}>
-      銀
+    <MedalCountCountryItemColumn key="silver">
+      <TextComponent>銀</TextComponent>
     </MedalCountCountryItemColumn>,
-    <MedalCountCountryItemColumn key="bronze" isHeader={true} isCenter={true}>
-      銅
+    <MedalCountCountryItemColumn key="bronze">
+      <TextComponent>銅</TextComponent>
     </MedalCountCountryItemColumn>,
   ]
   return (
