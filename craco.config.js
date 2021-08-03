@@ -1,3 +1,5 @@
+const path = require('path') // eslint-disable-line @typescript-eslint/no-var-requires
+
 module.exports = {
   style: {
     postcss: {
@@ -6,12 +8,18 @@ module.exports = {
   },
 
   webpack: {
-    configure: (webpackConfig, { env, paths }) => {
+    configure: (config, { env, paths }) => {
+      // eslint-disable-line @typescript-eslint/no-unused-vars
       const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin') // eslint-disable-line @typescript-eslint/no-var-requires
 
-      webpackConfig.resolve.plugins = webpackConfig.resolve.plugins.filter(plugin => !(plugin instanceof ModuleScopePlugin));
+      config.resolve.plugins = config.resolve.plugins.filter(
+        (plugin) => !(plugin instanceof ModuleScopePlugin)
+      )
 
-      return webpackConfig
-    }
+      return config
+    },
+    alias: {
+      '~': path.resolve(__dirname, 'src/'),
+    },
   },
 }

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { CountryInfo, MedalCountCountry } from 'generated/api'
-import useDidMount from 'customHooks/useDidMount'
-import client from 'api/client'
-import MedalCountCountryItemListContainer from 'components/containers/MedalCountCountryItemListContainer'
+import { CountryInfo, MedalCountCountry } from '~/generated/api'
+import useDidMount from '~/customHooks/useDidMount'
+import client from '~/api/client'
+import MedalCountCountryItemListContainer from '~/components/containers/MedalCountCountryItemListContainer'
 
 export const Component = (): JSX.Element => {
   const [countryInfos, setCountryInfos] = useState<CountryInfo[]>([])

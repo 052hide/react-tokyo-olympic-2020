@@ -1,6 +1,6 @@
 import axios, { AxiosStatic } from 'axios'
 import MockAdapter from 'axios-mock-adapter'
-import mocks from '__mocks__'
+import mocks from '~/__mocks__'
 
 const getMedalCountCountries = (mockAdapter: MockAdapter) => {
   mockAdapter

@@ -1,7 +1,7 @@
 import React from 'react'
+import MedalCountCountryItemColumn from '~/components/styles/MedalCountCountryItemColumn'
+import MedalCountCountryItemRow from '~/components/styles/MedalCountCountryItemRow'
 import { Props } from './type'
-import MedalCountCountryItemColumn from 'components/styles/MedalCountCountryItemColumn'
-import MedalCountCountryItemRow from 'components/styles/MedalCountCountryItemRow'
 
 const Component = (props: Props): JSX.Element => {
   const columnComponents = [
