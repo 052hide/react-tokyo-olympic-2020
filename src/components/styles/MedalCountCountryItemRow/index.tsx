@@ -10,7 +10,9 @@ const Component = (props: Props): JSX.Element => {
           : 'bg-white cursor-pointer hover:bg-gray-200'
       } ${props.rootClassName}`}
     >
-      {props.children}
+      {props.columnComponents.map((columnComponent, i) => (
+        <li key={`columnComponent_${i}`}>{columnComponent}</li>
+      ))}
     </ul>
   )
 }

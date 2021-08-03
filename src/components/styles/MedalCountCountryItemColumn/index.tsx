@@ -3,7 +3,7 @@ import { Props } from './type'
 
 const Component = (props: Props): JSX.Element => {
   return (
-    <li
+    <div
       className={`gap-4 flex flex-row items-center py-2 px-4 text-left ${
         props.isHeader ? 'font-bold text-xs sm:text-sm' : 'text-sm sm:text-base'
       } ${
@@ -13,7 +13,7 @@ const Component = (props: Props): JSX.Element => {
       }`}
     >
       {props.children}
-    </li>
+    </div>
   )
 }
 
