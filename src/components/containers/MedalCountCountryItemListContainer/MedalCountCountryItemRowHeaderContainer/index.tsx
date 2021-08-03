@@ -1,9 +1,8 @@
 import React from 'react'
 import MedalCountCountryItemColumn from '~/components/styles/MedalCountCountryItemColumn'
 import MedalCountCountryItemRow from '~/components/styles/MedalCountCountryItemRow'
-import { Props } from './type'
 
-const Component = (_props: Props): JSX.Element => {
+const Component = (): JSX.Element => {
   const columnComponents = [
     <MedalCountCountryItemColumn key="name" isHeader={true} isCenter={true}>
       国

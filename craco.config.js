@@ -8,8 +8,8 @@ module.exports = {
   },
 
   webpack: {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     configure: (config, { env, paths }) => {
-      // eslint-disable-line @typescript-eslint/no-unused-vars
       const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin') // eslint-disable-line @typescript-eslint/no-var-requires
 
       config.resolve.plugins = config.resolve.plugins.filter(
