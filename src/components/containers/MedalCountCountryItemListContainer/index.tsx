@@ -1,9 +1,9 @@
 import React from 'react'
-import { getCountryInfo } from 'helpers/country'
+import { getCountryInfo } from '~/helpers/country'
+import MedalCountCountryItemList from '~/components/styles/MedalCountCountryItemList'
 import { Props } from './type'
 import MedalCountCountryItemRowContainer from './MedalCountCountryItemRowContainer'
 import MedalCountCountryItemRowHeaderContainer from './MedalCountCountryItemRowHeaderContainer'
-import MedalCountCountryItemList from 'components/styles/MedalCountCountryItemList'
 
 const Component = (props: Props): JSX.Element => {
   const bodyComponents = props.medalCountCountries

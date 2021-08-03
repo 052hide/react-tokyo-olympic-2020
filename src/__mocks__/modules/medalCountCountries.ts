@@ -1,4 +1,4 @@
-import { MedalCountCountry } from 'generated/api'
+import { MedalCountCountry } from '~/generated/api'
 
 export const medalCountCountries = (): MedalCountCountry[] => [
   {

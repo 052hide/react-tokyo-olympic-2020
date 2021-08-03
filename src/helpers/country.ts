@@ -1,5 +1,5 @@
-import { Nullable } from 'types/util'
-import { CountryInfo } from 'generated/api'
+import { Nullable } from '~/types/util'
+import { CountryInfo } from '~/generated/api'
 
 export const getCountryName = (countryInfo: CountryInfo): string => {
   return countryInfo.translations?.ja || countryInfo.name

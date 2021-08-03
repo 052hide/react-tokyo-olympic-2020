@@ -1,5 +1,5 @@
-import { DefaultApiFactory, Configuration } from 'generated'
-import { getBoolean } from 'helpers/env'
+import { DefaultApiFactory, Configuration } from '~/generated'
+import { getBoolean } from '~/helpers/env'
 import Client from './mock'
 
 const basePath = process.env.REACT_APP_API_BASE_PATH
