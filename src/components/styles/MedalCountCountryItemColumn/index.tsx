@@ -3,15 +3,7 @@ import { Props } from './type'
 
 const Component = (props: Props): JSX.Element => {
   return (
-    <div
-      className={`gap-4 flex flex-row items-center py-2 px-4 text-left ${
-        props.isHeader ? 'font-bold text-xs sm:text-sm' : 'text-sm sm:text-base'
-      } ${
-        props.isCenter
-          ? 'justify-center text-center'
-          : 'justify-start  text-left'
-      }`}
-    >
+    <div className="gap-4 flex flex-row items-center py-2 px-4 text-left">
       {props.children}
     </div>
   )

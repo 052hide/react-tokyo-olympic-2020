@@ -5,6 +5,7 @@ import client from '~/api/client'
 import PageDefault from '~/components/layouts/PageDefault'
 import BaseModal from '~/components/commons/BaseModal'
 import MedalCountCountryItemListContainer from '~/components/containers/MedalCountCountryItemListContainer'
+import MedalCountCountryItemDetailContainer from '~/components/containers/MedalCountCountryItemDetailContainer'
 
 export const Component = (): JSX.Element => {
   // list
@@ -59,7 +60,10 @@ export const Component = (): JSX.Element => {
         />
         {visibleModal ? (
           <BaseModal close={closeModal}>
-            <p>{selectedCountryAlpha2Code}</p>
+            <MedalCountCountryItemDetailContainer
+              countryInfo={countryInfos[0]}
+              medalCountCountry={medalCountCountries[0]}
+            />
           </BaseModal>
         ) : (
           ''
