@@ -40,7 +40,7 @@ export const Component = (): JSX.Element => {
   }
 
   const onClick = (alpha2Code: string) => {
-    console.log({alpha2Code})
+    console.log({ alpha2Code })
     setSelectedCountryAlpha2Code(alpha2Code)
   }
 
