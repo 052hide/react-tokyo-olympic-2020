@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import { CountryInfo, MedalCountCountry } from '~/generated/api'
+import { findCountryInfo, findMedalCountCountry } from '~/helpers/country'
 import useDidMount from '~/customHooks/useDidMount'
 import client from '~/api/client'
 import PageDefault from '~/components/layouts/PageDefault'
@@ -23,6 +24,14 @@ export const Component = (): JSX.Element => {
   const visibleModal = useMemo(
     () => !!selectedCountryAlpha2Code,
     [selectedCountryAlpha2Code]
+  )
+  const selectedCountryInfo = useMemo(
+    () => findCountryInfo(selectedCountryAlpha2Code, countryInfos),
+    [selectedCountryAlpha2Code, countryInfos]
+  )
+  const selectedMedalCountCountry = useMemo(
+    () => findMedalCountCountry(selectedCountryAlpha2Code, medalCountCountries),
+    [selectedCountryAlpha2Code, medalCountCountries]
   )
 
   useDidMount(() => {
@@ -58,11 +67,11 @@ export const Component = (): JSX.Element => {
           medalCountCountries={medalCountCountries}
           onClick={onClick}
         />
-        {visibleModal ? (
+        {visibleModal && selectedCountryInfo && selectedMedalCountCountry ? (
           <BaseModal close={closeModal}>
             <MedalCountCountryItemDetailContainer
-              countryInfo={countryInfos[0]}
-              medalCountCountry={medalCountCountries[0]}
+              countryInfo={selectedCountryInfo}
+              medalCountCountry={selectedMedalCountCountry}
             />
           </BaseModal>
         ) : (

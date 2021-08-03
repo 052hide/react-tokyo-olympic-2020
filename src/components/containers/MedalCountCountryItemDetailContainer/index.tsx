@@ -1,5 +1,6 @@
 import React from 'react'
 import { getCountryName } from '~/helpers/country'
+import { getFormattedPopulation } from '~/helpers/population'
 import BaseImage from '~/components/commons/BaseImage'
 import { Props } from './type'
 
@@ -36,7 +37,7 @@ const Component = (props: Props): JSX.Element => {
         {props.countryInfo.population ? (
           <RowComponent
             title="人口"
-            value={`${props.countryInfo.population}`}
+            value={`${getFormattedPopulation(props.countryInfo.population)}`}
           />
         ) : (
           ''
