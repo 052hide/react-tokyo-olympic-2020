@@ -2,8 +2,9 @@ import React, { useState, useMemo } from 'react'
 import { CountryInfo, MedalCountCountry } from '~/generated/api'
 import useDidMount from '~/customHooks/useDidMount'
 import client from '~/api/client'
-import MedalCountCountryItemListContainer from '~/components/containers/MedalCountCountryItemListContainer'
+import PageDefault from '~/components/layouts/PageDefault'
 import BaseModal from '~/components/commons/BaseModal'
+import MedalCountCountryItemListContainer from '~/components/containers/MedalCountCountryItemListContainer'
 
 export const Component = (): JSX.Element => {
   // list
@@ -47,10 +48,10 @@ export const Component = (): JSX.Element => {
   }
 
   if (isLoading) {
-    return <div>isLoading</div>
+    return <PageDefault>isLoading</PageDefault>
   } else {
     return (
-      <>
+      <PageDefault>
         <MedalCountCountryItemListContainer
           countryInfos={countryInfos}
           medalCountCountries={medalCountCountries}
@@ -63,7 +64,7 @@ export const Component = (): JSX.Element => {
         ) : (
           ''
         )}
-      </>
+      </PageDefault>
     )
   }
 }
