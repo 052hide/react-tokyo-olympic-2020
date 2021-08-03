@@ -6,33 +6,30 @@ import { Props } from './type'
 
 const Component = (props: Props): JSX.Element => {
   const columnComponents = [
-    <MedalCountCountryItemColumn key="name" onClick={() => props.onClick}>
+    <MedalCountCountryItemColumn key="name">
       {getCountryName(props.countryInfo)}
     </MedalCountCountryItemColumn>,
     <MedalCountCountryItemColumn
       key="gold"
       isCenter={true}
-      onClick={() => props.onClick}
     >
       {props.medalCountCountry.gold_count}
     </MedalCountCountryItemColumn>,
     <MedalCountCountryItemColumn
       key="silver"
       isCenter={true}
-      onClick={() => props.onClick}
     >
       {props.medalCountCountry.silver_count}
     </MedalCountCountryItemColumn>,
     <MedalCountCountryItemColumn
       key="bronze"
       isCenter={true}
-      onClick={() => props.onClick}
     >
       {props.medalCountCountry.bronze_count}
     </MedalCountCountryItemColumn>,
   ]
 
-  return <MedalCountCountryItemRow columnComponents={columnComponents} />
+  return <MedalCountCountryItemRow columnComponents={columnComponents} onClick={props.onClick} />
 }
 
 export default Component

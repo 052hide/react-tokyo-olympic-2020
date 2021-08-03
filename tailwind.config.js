@@ -3,9 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      height: {
-        modalHeader: '3rem',
-      }
+      gridTemplateRows: {
+        modal: '3rem 1fr',
+      },
     },
   },
   variants: {

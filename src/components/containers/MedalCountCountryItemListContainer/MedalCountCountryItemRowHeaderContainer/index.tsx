@@ -3,13 +3,12 @@ import MedalCountCountryItemColumn from '~/components/styles/MedalCountCountryIt
 import MedalCountCountryItemRow from '~/components/styles/MedalCountCountryItemRow'
 import { Props } from './type'
 
-const Component = (props: Props): JSX.Element => {
+const Component = (_props: Props): JSX.Element => {
   const columnComponents = [
     <MedalCountCountryItemColumn
       key="name"
       isHeader={true}
       isCenter={true}
-      onClick={() => props.onClick}
     >
       国
     </MedalCountCountryItemColumn>,
@@ -17,7 +16,6 @@ const Component = (props: Props): JSX.Element => {
       key="gold"
       isHeader={true}
       isCenter={true}
-      onClick={() => props.onClick}
     >
       金
     </MedalCountCountryItemColumn>,
@@ -25,7 +23,6 @@ const Component = (props: Props): JSX.Element => {
       key="silver"
       isHeader={true}
       isCenter={true}
-      onClick={() => props.onClick}
     >
       銀
     </MedalCountCountryItemColumn>,
@@ -33,7 +30,6 @@ const Component = (props: Props): JSX.Element => {
       key="bronze"
       isHeader={true}
       isCenter={true}
-      onClick={() => props.onClick}
     >
       銅
     </MedalCountCountryItemColumn>,
