@@ -1,5 +1,6 @@
 import React from 'react'
 import { getCountryName } from '~/helpers/country'
+import MedalCountCountryItemColumnContentName from '~/components/styles/MedalCountCountryItemColumnContentName'
 import MedalCountCountryItemColumn from '~/components/styles/MedalCountCountryItemColumn'
 import MedalCountCountryItemRow from '~/components/styles/MedalCountCountryItemRow'
 import { Props } from './type'
@@ -7,7 +8,10 @@ import { Props } from './type'
 const Component = (props: Props): JSX.Element => {
   const columnComponents = [
     <MedalCountCountryItemColumn key="name">
-      {getCountryName(props.countryInfo)}
+      <MedalCountCountryItemColumnContentName
+        imageSrc={props.countryInfo.flag}
+        name={getCountryName(props.countryInfo)}
+      />
     </MedalCountCountryItemColumn>,
     <MedalCountCountryItemColumn key="gold" isCenter={true}>
       {props.medalCountCountry.gold_count}
