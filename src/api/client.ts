@@ -6,13 +6,15 @@ const basePath = process.env.REACT_APP_API_BASE_PATH
 
 const baseOptions: Configuration['baseOptions'] = {
   baseURL: basePath,
-  withCredentials: true,
   headers: {
-    'X-Requested-With': 'XMLHttpRequest',
-    Prefer: getBoolean(process.env.REACT_APP_USE_SERVER_MOCK)
-      ? 'dynamic=true'
-      : undefined,
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
   },
+  crossDomain: true,
+}
+
+if (getBoolean(process.env.REACT_APP_USE_SERVER_MOCK)) {
+  baseOptions.headers.Prefer = 'dynamic=true'
 }
 
 const configuration = new Configuration({
