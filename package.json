@@ -16,11 +16,12 @@
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "react-transition-group": "^4.4.2",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "craco start",
+    "start": "yarn tcm & craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
@@ -28,7 +29,8 @@
     "lint:fix": "eslint . --ext .js,.ts,.jsx,.tsx --fix --ignore-path .gitignore",
     "prettier:fix": "prettier --write . --ignore-path .gitignore",
     "generate-client": "openapi-generator-cli generate -g typescript-axios -c ./schema/config.yml -i ./schema/schema.yml -o ./src/generated",
-    "generate-mock-server": "openapi-generator-cli generate -g nodejs-express-server -i ./schema/schema.yml -o ./server"
+    "generate-mock-server": "openapi-generator-cli generate -g nodejs-express-server -i ./schema/schema.yml -o ./server",
+    "tcm": "tcm ./src -w"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +53,7 @@
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.3.9",
     "@types/react-router-dom": "^5.1.8",
+    "@types/react-transition-group": "^4.4.2",
     "@types/tailwindcss": "^2.2.1",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
@@ -62,6 +65,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "postcss": "^7",
     "prettier": "^2.3.2",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+    "typed-css-modules": "^0.7.0"
   }
 }

@@ -25,7 +25,7 @@ const Component = (props: Props): JSX.Element => {
 
   return (
     <div className="grid gap-4">
-      <div className="border-t border-b border-solid border-gray-200">
+      <div className="border-t border-b border-solid border-gray-200 min-h-50vw sm:min-h-25vw">
         <BaseImage
           src={props.countryInfo.flag}
           alt={props.countryInfo.alpha_2_code}

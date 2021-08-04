@@ -24,7 +24,8 @@ export const findMedalCountCountry = (
   return (
     medalCountCountries.find(
       (medalCountCountry) =>
-      medalCountCountry.country_alpha_2_code.toUpperCase() === alpha2Code.toUpperCase()
+        medalCountCountry.country_alpha_2_code.toUpperCase() ===
+        alpha2Code.toUpperCase()
     ) || null
   )
 }

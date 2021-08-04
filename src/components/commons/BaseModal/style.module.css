@@ -1,0 +1,19 @@
+.fadeEnter {
+  opacity: 0;
+  transition: all 200ms;
+}
+
+.fadeEnterActive {
+  opacity: 1;
+  transition: all 200ms;
+}
+
+.fadeExitActive {
+  opacity: 1;
+  transition: all 200ms;
+}
+
+.fadeExit {
+  opacity: 0;
+  transition: all 200ms;
+}
