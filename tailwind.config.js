@@ -1,3 +1,6 @@
+/**
+ * @type {import('@types/tailwindcss/tailwind-config').TailwindConfig}
+ */
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
@@ -23,6 +26,10 @@ module.exports = {
         bronze: {
           default: '#934020',
         },
+      },
+      minHeight: {
+        '25vw': '25vw',
+        '50vw': '50vw',
       },
     },
   },
