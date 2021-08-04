@@ -2,7 +2,6 @@
 
 ## フロント
 
-
 - node: 16.x
 
 .env
@@ -14,12 +13,12 @@ REACT_APP_API_BASE_PATH: APIのエンドポイントを指定
 ```
 
 例
+
 ```
 REACT_APP_USE_LOCAL_MOCK=true
 REACT_APP_USE_SERVER_MOCK=false
 REACT_APP_API_BASE_PATH=http://localhost:5555
 ```
-
 
 ### 開発環境起動
 
@@ -37,9 +36,9 @@ http://localhost:3000
 
 `docker-compose up`
 
-- APIサーバー
+- API サーバー
   - http://localhost:5555
-- APIドキュメント
+- API ドキュメント
   - http://localhost:5556
 
 https://docs.docker.com/compose/

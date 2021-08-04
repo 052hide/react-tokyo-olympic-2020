@@ -1,7 +1,9 @@
 import React, { MouseEvent, useRef } from 'react'
+import { CSSTransition } from 'react-transition-group'
 import { VscChromeClose } from 'react-icons/vsc'
 import useDidMount from '~/customHooks/useDidMount'
 import { Props } from './type'
+import styles from './style.module.css'
 
 /**
  * モーダルの下の要素のスクロールを元に戻す
@@ -25,6 +27,7 @@ const hiddenBodyStyle = () => {
 
 export const Component = (props: Props): JSX.Element => {
   useDidMount(hiddenBodyStyle)
+
   const outsideRef = useRef(null)
 
   const onClick = () => {
@@ -43,23 +46,35 @@ export const Component = (props: Props): JSX.Element => {
   }
 
   return (
-    <div
-      ref={outsideRef}
-      className="fixed top-0 left-0 bottom-0 flex flex-col justify-end h-full w-full bg-black bg-opacity-50 sm:flex-row"
-      onClick={onClickOutside}
+    <CSSTransition
+      timeout={500}
+      classNames={{
+        enter: styles.fadeEnter,
+        enterActive: styles.fadeEnterActive,
+        exitActive: styles.fadeExitActive,
+        exit: styles.fadeExit,
+      }}
+      unmountOnExit
+      in={props.visible}
     >
-      <div className="grid grid-rows-modal h-5/6 bg-white rounded-t-lg sm:h-full sm:w-1/2 sm:rounded-t-none sm:rounded-l-lg">
-        <div className="flex flex-row justify-end items-center px-2 shadow sm:justify-start">
-          <button
-            className="p-2 rounded-full transition-colors duration-200 hover:bg-gray-200"
-            onClick={onClick}
-          >
-            <VscChromeClose />
-          </button>
+      <div
+        ref={outsideRef}
+        className="fixed top-0 left-0 bottom-0 flex flex-col justify-end h-full w-full bg-black bg-opacity-50 sm:flex-row"
+        onClick={onClickOutside}
+      >
+        <div className="grid grid-rows-modal h-5/6 bg-white rounded-t-lg sm:h-full sm:w-1/2 sm:rounded-t-none sm:rounded-l-lg">
+          <div className="flex flex-row justify-end items-center px-2 shadow sm:justify-start">
+            <button
+              className="p-2 rounded-full transition-colors duration-200 hover:bg-gray-200"
+              onClick={onClick}
+            >
+              <VscChromeClose />
+            </button>
+          </div>
+          <div className="overflow-y-auto">{props.children}</div>
         </div>
-        <div className="overflow-y-auto">{props.children}</div>
       </div>
-    </div>
+    </CSSTransition>
   )
 }
 

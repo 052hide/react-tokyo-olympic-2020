@@ -67,16 +67,14 @@ export const Component = (): JSX.Element => {
           medalCountCountries={medalCountCountries}
           onClick={onClick}
         />
-        {visibleModal && selectedCountryInfo && selectedMedalCountCountry ? (
-          <BaseModal close={closeModal}>
+        <BaseModal visible={visibleModal} close={closeModal}>
+          {selectedCountryInfo && selectedMedalCountCountry && (
             <MedalCountCountryItemDetailContainer
               countryInfo={selectedCountryInfo}
               medalCountCountry={selectedMedalCountCountry}
             />
-          </BaseModal>
-        ) : (
-          ''
-        )}
+          )}
+        </BaseModal>
       </PageDefault>
     )
   }
