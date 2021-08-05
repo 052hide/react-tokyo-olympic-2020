@@ -28,15 +28,20 @@ module.exports = {
     },
     devtool: 'hidden-source-map',
     plugins: [
-      new SentryWebpackPlugin({
-        authToken: dotenv.SENTRY_AUTH_TOKEN,
-        org: dotenv.SENTRY_ORG,
-        project: dotenv.SENTRY_PROJECT,
-        release: `${sentryRelease}`,
+      () =>
+        dotenv.SENTRY_AUTH_TOKEN &&
+        dotenv.SENTRY_ORG &&
+        dotenv.SENTRY_PROJECT &&
+        sentryRelease &&
+        new SentryWebpackPlugin({
+          authToken: dotenv.SENTRY_AUTH_TOKEN,
+          org: dotenv.SENTRY_ORG,
+          project: dotenv.SENTRY_PROJECT,
+          release: `${sentryRelease}`,
 
-        include: "./build",
-        ignore: ["node_modules", "craco.config.js"],
-      }),
-    ]
+          include: './build',
+          ignore: ['node_modules', 'craco.config.js'],
+        }),
+    ],
   },
 }
