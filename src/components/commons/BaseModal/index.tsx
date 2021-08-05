@@ -28,6 +28,7 @@ const hiddenBodyStyle = () => {
 export const Component = (props: Props): JSX.Element => {
   useDidMount(hiddenBodyStyle)
 
+  const nodeRef = useRef(null)
   const outsideRef = useRef(null)
 
   const onClick = () => {
@@ -47,6 +48,7 @@ export const Component = (props: Props): JSX.Element => {
 
   return (
     <CSSTransition
+      nodeRef={nodeRef}
       timeout={500}
       classNames={{
         enter: styles.fadeEnter,
