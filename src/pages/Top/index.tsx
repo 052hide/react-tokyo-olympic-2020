@@ -1,8 +1,10 @@
 import React, { useState, useMemo } from 'react'
+import { FcLeft } from 'react-icons/fc'
 import { CountryInfo, MedalCountCountry } from '~/generated/api'
 import { findCountryInfo, findMedalCountCountry } from '~/helpers/country'
 import useDidMount from '~/customHooks/useDidMount'
 import client from '~/api/client'
+import LoadingAnimation from '~/components/commons/animations/LoadingAnimation'
 import PageDefault from '~/components/layouts/PageDefault'
 import BaseModal from '~/components/commons/BaseModal'
 import MedalCountCountryItemListContainer from '~/components/containers/MedalCountCountryItemListContainer'
@@ -57,27 +59,39 @@ export const Component = (): JSX.Element => {
     setSelectedCountryAlpha2Code(alpha2Code)
   }
 
-  if (isLoading) {
-    return <PageDefault>isLoading</PageDefault>
-  } else {
-    return (
-      <PageDefault>
-        <MedalCountCountryItemListContainer
-          countryInfos={countryInfos}
-          medalCountCountries={medalCountCountries}
-          onClick={onClick}
-        />
-        <BaseModal visible={visibleModal} close={closeModal}>
-          {selectedCountryInfo && selectedMedalCountCountry && (
-            <MedalCountCountryItemDetailContainer
-              countryInfo={selectedCountryInfo}
-              medalCountCountry={selectedMedalCountCountry}
+  return (
+    <PageDefault>
+      {isLoading ? (
+        <div className="flex flex-row justify-center items-center">
+          <LoadingAnimation classNames="h-12 w-12 text-blue-500" />
+        </div>
+      ) : (
+        <>
+          <div className="sm:border-r">
+            <MedalCountCountryItemListContainer
+              countryInfos={countryInfos}
+              medalCountCountries={medalCountCountries}
+              onClick={onClick}
             />
+          </div>
+          {!visibleModal && (
+            <div className="hidden sm:flex sm:flex-row sm:justify-center sm:items-center">
+              <FcLeft size={64} className="animate-pulse" />
+              <p className="ml-2 text-xl">選択してください</p>
+            </div>
           )}
-        </BaseModal>
-      </PageDefault>
-    )
-  }
+          <BaseModal visible={visibleModal} close={closeModal}>
+            {selectedCountryInfo && selectedMedalCountCountry && (
+              <MedalCountCountryItemDetailContainer
+                countryInfo={selectedCountryInfo}
+                medalCountCountry={selectedMedalCountCountry}
+              />
+            )}
+          </BaseModal>
+        </>
+      )}
+    </PageDefault>
+  )
 }
 
 export default Component
