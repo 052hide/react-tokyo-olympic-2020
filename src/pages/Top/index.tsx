@@ -1,7 +1,11 @@
 import React, { useState, useMemo } from 'react'
 import { FcLeft } from 'react-icons/fc'
 import { CountryInfo, MedalCountCountry } from '~/generated/api'
-import { findCountryInfo, findMedalCountCountry } from '~/helpers/country'
+import {
+  findCountryInfo,
+  findMedalCountCountry,
+  getSortedMedalCountCountriesByMedalRankCount,
+} from '~/helpers/country'
 import useDidMount from '~/customHooks/useDidMount'
 import client from '~/api/client'
 import LoadingAnimation from '~/components/commons/animations/LoadingAnimation'
@@ -34,6 +38,10 @@ export const Component = (): JSX.Element => {
   const selectedMedalCountCountry = useMemo(
     () => findMedalCountCountry(selectedCountryAlpha2Code, medalCountCountries),
     [selectedCountryAlpha2Code, medalCountCountries]
+  )
+  const sortedMedalCountCountries = useMemo(
+    () => getSortedMedalCountCountriesByMedalRankCount(medalCountCountries),
+    [medalCountCountries]
   )
 
   useDidMount(() => {
@@ -70,7 +78,7 @@ export const Component = (): JSX.Element => {
           <div className="sm:border-r">
             <MedalCountCountryItemListContainer
               countryInfos={countryInfos}
-              medalCountCountries={medalCountCountries}
+              medalCountCountries={sortedMedalCountCountries}
               onClick={onClick}
             />
           </div>
