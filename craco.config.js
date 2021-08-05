@@ -1,10 +1,9 @@
 const path = require('path') // eslint-disable-line @typescript-eslint/no-var-requires
 const SentryWebpackPlugin = require('@sentry/webpack-plugin') // eslint-disable-line @typescript-eslint/no-var-requires
-const DotEnv = require('dotenv') // eslint-disable-line @typescript-eslint/no-var-requires
 
-const dotenv = DotEnv.config().parsed
 const sentryRelease = new Date().toUTCString()
 
+console.log(process.env)
 module.exports = {
   style: {
     postcss: {
@@ -29,14 +28,14 @@ module.exports = {
     devtool: 'hidden-source-map',
     plugins: [
       () =>
-        dotenv.SENTRY_AUTH_TOKEN &&
-        dotenv.SENTRY_ORG &&
-        dotenv.SENTRY_PROJECT &&
+        process.env.SENTRY_AUTH_TOKEN &&
+        process.env.SENTRY_ORG &&
+        process.env.SENTRY_PROJECT &&
         sentryRelease &&
         new SentryWebpackPlugin({
-          authToken: dotenv.SENTRY_AUTH_TOKEN,
-          org: dotenv.SENTRY_ORG,
-          project: dotenv.SENTRY_PROJECT,
+          authToken: process.env.SENTRY_AUTH_TOKEN,
+          org: process.env.SENTRY_ORG,
+          project: process.env.SENTRY_PROJECT,
           release: `${sentryRelease}`,
 
           include: './build',
