@@ -1,5 +1,9 @@
 const path = require('path') // eslint-disable-line @typescript-eslint/no-var-requires
+const SentryWebpackPlugin = require('@sentry/webpack-plugin') // eslint-disable-line @typescript-eslint/no-var-requires
 
+const sentryRelease = new Date().toUTCString()
+
+console.log(process.env)
 module.exports = {
   style: {
     postcss: {
@@ -21,5 +25,22 @@ module.exports = {
     alias: {
       '~': path.resolve(__dirname, 'src/'),
     },
+    devtool: 'hidden-source-map',
+    plugins: [
+      () =>
+        process.env.SENTRY_AUTH_TOKEN &&
+        process.env.SENTRY_ORG &&
+        process.env.SENTRY_PROJECT &&
+        sentryRelease &&
+        new SentryWebpackPlugin({
+          authToken: process.env.SENTRY_AUTH_TOKEN,
+          org: process.env.SENTRY_ORG,
+          project: process.env.SENTRY_PROJECT,
+          release: `${sentryRelease}`,
+
+          include: './build',
+          ignore: ['node_modules', 'craco.config.js'],
+        }),
+    ],
   },
 }
