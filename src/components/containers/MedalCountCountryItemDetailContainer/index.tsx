@@ -42,8 +42,8 @@ const Component = (props: Props): JSX.Element => {
         ) : (
           ''
         )}
-        {language ? <RowComponent title="言語" value={language} /> : ''}
-        {area ? <RowComponent title="エリア" value={area} /> : ''}
+        {language && <RowComponent title="言語" value={language} />}
+        {area && <RowComponent title="エリア" value={area} />}
       </ul>
     </div>
   )
