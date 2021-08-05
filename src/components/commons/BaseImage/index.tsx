@@ -3,9 +3,7 @@ import { Props } from './type'
 
 export const Component = (props: Props): JSX.Element => {
   return (
-    <div style={{ width: props.width, height: props.height }}>
-      <img src={props.src} alt={props.alt} className="max-h-full max-w-full" />
-    </div>
+    <img src={props.src} alt={props.alt} width={props.width} height={props.height} className={props.className} />
   )
 }
 
