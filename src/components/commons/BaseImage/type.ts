@@ -3,4 +3,5 @@ export type Props<> = {
   alt: string
   width?: string
   height?: string
+  className?: string
 }

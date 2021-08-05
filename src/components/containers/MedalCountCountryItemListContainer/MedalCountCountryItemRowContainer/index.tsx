@@ -10,16 +10,15 @@ const NameContentComponent = (props: {
   imageSrc: string
 }): JSX.Element => {
   return (
-    <div className="grid w-full grid-cols-1 xs:grid-cols-countryNameWithFlag">
+    <div className="gap-4 grid w-full grid-cols-1 xs:grid-cols-countryNameWithFlag">
       <div className="flex flex-row justify-center items-center">
-        <div className="border">
-          <BaseImage
-            src={props.imageSrc}
-            alt={props.name}
-            height="1.5rem"
-            width="auto"
-          />
-        </div>
+        <BaseImage
+          src={props.imageSrc}
+          alt={props.name}
+          height="100%"
+          width="auto"
+          className="border h-6"
+        />
       </div>
       <div className="hidden xs:flex xs:flex-row xs:justify-start xs:items-center">
         <p className="text-sm sm:text-base truncate ...">{props.name}</p>
