@@ -3,7 +3,6 @@ const SentryWebpackPlugin = require('@sentry/webpack-plugin') // eslint-disable-
 
 const sentryRelease = new Date().toUTCString()
 
-console.log(process.env)
 module.exports = {
   style: {
     postcss: {
