@@ -1,6 +1,7 @@
 {
   "name": "react-tokyo-olympic-2020",
   "version": "0.1.0",
+  "homepage": "./",
   "private": true,
   "dependencies": {
     "@craco/craco": "^6.2.0",
@@ -25,6 +26,7 @@
   "scripts": {
     "start": "yarn tcm & craco start",
     "build": "craco build",
+    "serve": "serve build",
     "test": "craco test",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .js,.ts,.jsx,.tsx --ignore-path .gitignore",
@@ -66,6 +68,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "http-server": "^0.12.3",
     "postcss": "^7.0.35",
     "prettier": "^2.3.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
