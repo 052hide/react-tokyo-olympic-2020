@@ -1,4 +1,4 @@
-import React, { ReactChild } from 'react'
+import React, { ReactChild, useMemo } from 'react'
 import { getCountryName } from '~/helpers/country'
 import BaseImage from '~/components/commons/BaseImage'
 import MedalCountCountryItemColumn from '~/components/styles/MedalCountCountryItemColumn'
@@ -32,13 +32,26 @@ const CountContentComponent = (props: {
   color: 'gold' | 'silver' | 'bronze'
   isCenter: boolean
 }): JSX.Element => {
+  const textColor = useMemo(
+    () => {
+      if (props.color === 'gold') {
+        return 'text-gold-default'
+      } else if (props.color === 'silver') {
+        return 'text-silver-default'
+      } else {
+        return 'text-bronze-default'
+      }
+    },
+    [props.color]
+  )
+
   return (
     <p
       className={`flex flex-row items-center w-full font-bold text-sm sm:text-base ${
         props.isCenter
           ? 'justify-center text-center'
           : 'justify-start text-left'
-      } text-${props.color}-default`}
+      } ${textColor}`}
     >
       {props.children}
     </p>
