@@ -35,7 +35,6 @@ export const client = (
       delayResponse: mockDelayResponseMillisecond,
     })
     setAdaptor(mockAdapter)
-    return (mockAdapter as any).axiosInstance as AxiosStatic // eslint-disable-line @typescript-eslint/no-explicit-any
   }
   return axios
 }
