@@ -5,7 +5,7 @@ const baseRowClassName = 'transition-colors duration-150'
 
 const Component = (props: Props): JSX.Element => {
   return (
-    <ul className="grid h-screen overflow-y-auto">
+    <ul className="flex flex-col h-screen overflow-y-auto">
       <li className={`${baseRowClassName} sticky top-0 bg-gray-100 shadow-sm`}>
         {props.headerComponent}
       </li>
