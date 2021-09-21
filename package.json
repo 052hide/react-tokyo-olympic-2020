@@ -61,7 +61,7 @@
     "@types/react-transition-group": "^4.4.2",
     "@types/tailwindcss": "^2.2.1",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
-    "@typescript-eslint/parser": "^4.28.5",
+    "@typescript-eslint/parser": "^4.31.2",
     "autoprefixer": "^9.8.6",
     "axios-mock-adapter": "^1.19.0",
     "eslint": "^7.32.0",
