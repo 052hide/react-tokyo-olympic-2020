@@ -56,7 +56,7 @@
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.3.9",
-    "@sentry/webpack-plugin": "^1.17.0",
+    "@sentry/webpack-plugin": "^1.17.2",
     "@types/react-router-dom": "^5.1.8",
     "@types/react-transition-group": "^4.4.2",
     "@types/tailwindcss": "^2.2.1",
