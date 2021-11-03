@@ -8,7 +8,7 @@ jobs:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.4.0
       - run: yarn && yarn build
         env:
           REACT_APP_API_BASE_PATH: ${{ secrets.REACT_APP_API_BASE_PATH }}
