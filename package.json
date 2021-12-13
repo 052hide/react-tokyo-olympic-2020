@@ -69,7 +69,7 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "http-server": "^0.12.3",
-    "postcss": "^7.0.35",
+    "postcss": "^8.4.5",
     "prettier": "^2.3.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "typed-css-modules": "^0.7.0"
